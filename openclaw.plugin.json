@@ -1,5 +1,5 @@
 {
-	"id": "seatalk",
+	"id": "openclaw-seatalk",
 	"channels": ["seatalk"],
 	"configSchema": {
 		"type": "object",

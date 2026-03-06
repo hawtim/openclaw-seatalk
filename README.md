@@ -1,6 +1,6 @@
 # openclaw-seatalk
 
-OpenClaw channel plugin for [SeaTalk](https://seatalk.io/) internal messaging.
+OpenClaw channel plugin for [SeaTalk](https://seatalk.io/) messaging.
 
 ## Features
 

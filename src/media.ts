@@ -1,4 +1,5 @@
 import * as fs from "node:fs";
+import * as os from "node:os";
 import * as path from "node:path";
 import type { SeaTalkClient } from "./client.js";
 import { getSeatalkRuntime } from "./runtime.js";
@@ -114,7 +115,7 @@ export async function prepareOutboundMedia(mediaUrl: string): Promise<SeaTalkOut
 		detectedName = path.basename(urlPath) || "file";
 	} else {
 		const resolved = mediaUrl.startsWith("~")
-			? path.join(process.env.HOME ?? "", mediaUrl.slice(1))
+			? path.join(os.homedir(), mediaUrl.slice(1))
 			: mediaUrl.replace(/^file:\/\//, "");
 
 		if (!fs.existsSync(resolved)) {

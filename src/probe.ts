@@ -1,4 +1,4 @@
-import { SeaTalkClient } from "./client.js";
+import { getSeaTalkClient } from "./client.js";
 import type { SeaTalkProbeResult } from "./types.js";
 
 export async function probeSeaTalk(params?: {
@@ -13,15 +13,14 @@ export async function probeSeaTalk(params?: {
 	}
 
 	try {
-		const client = new SeaTalkClient(params.appId, params.appSecret);
+		const client = getSeaTalkClient(params.appId, params.appSecret);
 		const start = Date.now();
-		const tokenInfo = await client.refreshToken();
+		const token = await client.getAccessToken();
 		const latencyMs = Date.now() - start;
 
 		return {
 			ok: true,
 			appId: params.appId,
-			tokenExpire: tokenInfo.expireAt,
 			latencyMs,
 		};
 	} catch (err) {

@@ -2,7 +2,7 @@ import type { SeaTalkTokenInfo } from "./types.js";
 
 const BASE_URL = "https://openapi.seatalk.io";
 const HTTP_TIMEOUT_MS = 10_000;
-const TOKEN_REFRESH_MARGIN_S = 30;
+const TOKEN_REFRESH_MARGIN_S = 600;
 
 export class SeaTalkClient {
 	private appId: string;

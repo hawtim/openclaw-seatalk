@@ -2,6 +2,7 @@
 
 ## 0.2.1
 
+- Remove `setupEntry` to avoid plugin id mismatch when channel is unconfigured.
 - Add ClawHub compatibility metadata (`compat.pluginApi`).
 
 ## 0.2.0

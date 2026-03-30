@@ -79,7 +79,7 @@ const seatalkDmPolicy: ChannelSetupDmPolicy = createTopLevelChannelDmPolicy({
 
 async function promptCredentials(
 	prompter: Parameters<NonNullable<ChannelSetupWizard["finalize"]>>[0]["prompter"],
-): Promise<{ appId: string; appSecret: string; signingSecret: string }> {
+): Promise<{ appId: string; appSecret: string; signingSecret: string; }> {
 	const appId = String(
 		await prompter.text({
 			message: "Enter SeaTalk App ID",
@@ -140,14 +140,14 @@ export const seatalkSetupWizard: ChannelSetupWizard = {
 		const resolved = resolveSeaTalkCredentials(seatalkCfg);
 		const hasConfigCreds = Boolean(
 			seatalkCfg?.appId?.trim() &&
-				seatalkCfg?.appSecret?.trim() &&
-				seatalkCfg?.signingSecret?.trim(),
+			seatalkCfg?.appSecret?.trim() &&
+			seatalkCfg?.signingSecret?.trim(),
 		);
 		const canUseEnv = Boolean(
 			!hasConfigCreds &&
-				process.env.SEATALK_APP_ID?.trim() &&
-				process.env.SEATALK_APP_SECRET?.trim() &&
-				process.env.SEATALK_SIGNING_SECRET?.trim(),
+			process.env.SEATALK_APP_ID?.trim() &&
+			process.env.SEATALK_APP_SECRET?.trim() &&
+			process.env.SEATALK_SIGNING_SECRET?.trim(),
 		);
 
 		let appId: string | null = null;

@@ -30,8 +30,8 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.0",
-		"@types/ws": "^8.5.0",
-		"openclaw": "latest"
+		"@types/ws": "^8.18.0",
+		"openclaw": "2026.3.24"
 	},
 	"peerDependencies": {
 		"openclaw": ">=2026.3.22"
